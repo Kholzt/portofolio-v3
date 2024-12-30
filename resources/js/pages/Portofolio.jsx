@@ -38,7 +38,7 @@ const Portofolio = ({ data }) => {
                                 <div className="">
                                     <h6 className="mb-0 ">Project</h6>
                                     <h1
-                                        className="fw-medium "
+                                        className="font-medium text-xl "
                                         id="project-count"
                                     >
                                         {portofolio.length}
