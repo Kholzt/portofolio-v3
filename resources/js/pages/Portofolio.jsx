@@ -52,7 +52,7 @@ const Portofolio = ({ data }) => {
                     <div className="container">
                         <div className="d-flex gap-2 align-items-center mb-4">
                             <span className="particle" />
-                            <h4 className="d-inline-block mb-0  fw-normal">
+                            <h4 className="inline-block mb-0 text-lg   font-normal">
                                 Projects
                             </h4>
                             <span className="particle" />
@@ -105,14 +105,12 @@ function PortofolioItem(index, porto, resultFormatDate) {
                             .join("")}
                     </ul>
                 </div>
-                <div className="flex">
-                    <div  className="text-sm text-slate-600">
+                <div className="flex text-sm text-slate-600 mt-2">
                         <i className="fa fa-calendar  me-2" />
 
                         <small>
                             {resultFormatDate}
                         </small>
-                    </div>
                 </div>
             </div>
         </article>
