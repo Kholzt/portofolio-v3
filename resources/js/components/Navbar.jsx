@@ -30,7 +30,7 @@ const Navbar = () => {
 
 const NavbarMobile = ({ scrolled, active, setActive, user }) => {
     const baseClass =
-        "fixed md:hidden z-10 transition-all duration-300 ease-in-out px-4";
+        "fixed md:hidden z-10 transition-all duration-300 ease-in-out ";
     const scrolledClass = scrolled
         ? "py-4 bg-white/90 backdrop-blur-sm "
         : "py-12 ";
