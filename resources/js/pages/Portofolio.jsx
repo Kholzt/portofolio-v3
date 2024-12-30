@@ -9,14 +9,12 @@ const Portofolio = ({ data }) => {
      
            <Navbar/>
 
-            <>
                 <section id="hero" className="mb-4">
                     <div className="container ">
                         <div
-                            className="row  align-items-md-end align-items-center"
-                            style={{ height: "70vh" }}
+                            className="grid md:grid-cols-2 grid-cols-1 min-h-[70vh]"
                         >
-                            <div className="col-md-6 col-12">
+                            <div className="">
                                 <h1>Muhammad Nor Kholit</h1>
                                 <p>
                                     Saya adalah Junior Programmer dengan
@@ -59,68 +57,65 @@ const Portofolio = ({ data }) => {
                             </h4>
                             <span className="particle" />
                         </div>
-                        <div id="project-list" className="row g-4">
+                        <div id="project-list" className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 g-4">
                             {portofolio?.map((porto, index) => {
                                 const resultFormatDate = formatDate(
                                     porto.created_at
                                 );
                                 return (
-                                    <div
-                                        key={index}
-                                        className="col-lg-4 col-md-6 col-12"
-                                    >
-                                        <article className="border rounded-1 overflow-hidden">
-                                            <img
-                                                src={porto.thumbnail}
-                                                className="img-fluid ratio ratio-16x9"
-                                                alt={porto.title}
-                                            />
-                                            <div className="p-3">
-                                                <h6 className="fs-5 fw-medium">
-                                                    {porto.title}
-                                                </h6>
-                                                <p>{porto.description}</p>
-                                                <div>
-                                                    <ul className="d-flex gap-2 list-unstyled">
-                                                        {porto?.technologies
-                                                            ?.map(
-                                                                (tech) => `
+                                    PortofolioItem(index, porto, resultFormatDate)
+                                );
+                            })}
+                        </div>
+                    </div>
+                </section>
+        </div>
+    );
+};
+
+export default Portofolio;
+
+function PortofolioItem(index, porto, resultFormatDate) {
+    return <div
+        key={index}
+        className="col-lg-4 col-md-6 col-12"
+    >
+        <article className="border rounded-md overflow-hidden">
+            <img
+                src={porto.thumbnail}
+                className="img-fluid ratio ratio-16x9"
+                alt={porto.title} />
+            <div className="p-3">
+                <h6 className="text-lg font-medium">
+                    {porto.title}
+                </h6>
+                <p>{porto.description}</p>
+                <div>
+                    <ul className="flex gap-2 unstyled">
+                        {porto?.technologies
+                            ?.map(
+                                (tech) => `
                                                         <li>
                                                             <span className="badge text-bg-dark fw-medium">
                                                                 ${"{"}tech{"}"}
                                                             </span>
                                                         </li>
                                                         `
-                                                            )
-                                                            .join("")}
-                                                    </ul>
-                                                </div>
-                                                <div className="flex">
-                                                    <div>
-                                                        <i className="fa fa-calendar text-secondary me-2" />
+                            )
+                            .join("")}
+                    </ul>
+                </div>
+                <div className="flex">
+                    <div>
+                        <i className="fa fa-calendar text-secondary me-2" />
 
-                                                        <small>
-                                                            {resultFormatDate}
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </div>
-                                );
-                            })}
-                        </div>
+                        <small>
+                            {resultFormatDate}
+                        </small>
                     </div>
-                </section>
-            </>
+                </div>
+            </div>
+        </article>
+    </div>;
+}
 
-            <script
-                src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-                crossorigin="anonymous"
-            ></script>
-        </div>
-    );
-};
-
-export default Portofolio;
