@@ -48,7 +48,7 @@ const Portofolio = ({ data }) => {
                         </div>
                     </div>
                 </section>
-                <section id="projects">
+                <section id="projects" className="pt-10">
                     <div className="container">
                         <div className="d-flex gap-2 align-items-center mb-4">
                             <span className="particle" />
