@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [active, setActive] = useState(false);
-    const user = usePage().props.auth.user;
+    const user = usePage()?.props?.auth?.user;
 
     useEffect(() => {
         const handleScroll = () => {
