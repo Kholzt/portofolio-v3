@@ -85,7 +85,7 @@ function PortofolioItem(index, porto, resultFormatDate) {
                 src={porto.thumbnail}
                 className="img-fluid ratio ratio-16x9"
                 alt={porto.title} />
-            <div className="p-3">
+            <div className="p-4">
                 <h6 className="text-lg font-medium">
                     {porto.title}
                 </h6>
