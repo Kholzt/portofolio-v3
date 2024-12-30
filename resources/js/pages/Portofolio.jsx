@@ -15,8 +15,8 @@ const Portofolio = ({ data }) => {
                             className="grid md:grid-cols-2 grid-cols-1 "
                         >
                             <div className="">
-                                <h1>Muhammad Nor Kholit</h1>
-                                <p>
+                                <h1 className="text-4xl font-medium mb-2">Muhammad Nor Kholit</h1>
+                                <p className="text-base text-slate-600 mb-4">
                                     Saya adalah Junior Programmer dengan
                                     pengalaman dalam pengembangan aplikasi web
                                     menggunakan JavaScript dan Java. Saya
@@ -89,7 +89,7 @@ function PortofolioItem(index, porto, resultFormatDate) {
                 <h6 className="text-lg font-medium">
                     {porto.title}
                 </h6>
-                <p>{porto.description}</p>
+                <p className="text-sm text-slate-600">{porto.description}</p>
                 <div>
                     <ul className="flex gap-2 unstyled">
                         {porto?.technologies
@@ -106,8 +106,8 @@ function PortofolioItem(index, porto, resultFormatDate) {
                     </ul>
                 </div>
                 <div className="flex">
-                    <div>
-                        <i className="fa fa-calendar text-secondary me-2" />
+                    <div  className="text-sm text-slate-600">
+                        <i className="fa fa-calendar  me-2" />
 
                         <small>
                             {resultFormatDate}
