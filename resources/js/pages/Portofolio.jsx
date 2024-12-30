@@ -1,59 +1,13 @@
 import React from "react";
 import { formatDate } from "../helpers/helpers";
+import Navbar from "../components/Navbar";
 
 const Portofolio = ({ data }) => {
     const { portofolio } = data;
     return (
         <div>
-            <link
-                href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-                rel="stylesheet"
-            />
-            <link
-                rel="stylesheet"
-                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-            />
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" />
-            <link
-                href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-                rel="stylesheet"
-            ></link>
-            <nav className="navbar navbar-expand-lg bg-white position-fixed w-100 top-0 left-0">
-                <div className="container">
-                    <a className="navbar-brand" href="#">
-                        <img src="./logo.svg" alt="" />
-                    </a>
-                    <button
-                        className="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavAltMarkup"
-                        aria-controls="navbarNavAltMarkup"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                    >
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div
-                        className="collapse navbar-collapse"
-                        id="navbarNavAltMarkup"
-                    >
-                        <div className="navbar-nav ms-auto">
-                            <a
-                                className="nav-link active"
-                                aria-current="page"
-                                href="#"
-                            >
-                                Projects
-                            </a>
-                            <a className="nav-link" href="#">
-                                About
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+     
+           <Navbar/>
 
             <>
                 <section id="hero" className="mb-4">
