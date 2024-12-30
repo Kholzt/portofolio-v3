@@ -41,7 +41,7 @@ const NavbarMobile = ({ scrolled, active, setActive, user }) => {
     return (
         <header
             className={`${baseClass} ${scrolledClass} ${activeClass} ${
-                scrolled || active ? "text-black py-4" : "text-white"
+                scrolled || active ? "text-black py-4" : "text-black"
             }`}
         >
             <div className="container flex flex-wrap justify-between">
@@ -80,7 +80,7 @@ const NavbarWeb = ({ scrolled, user }) => {
         "fixed hidden md:block top-0 z-10 transition-all duration-300 ease-in-out px-4 w-full";
     const scrolledClass = scrolled
         ? "py-4 bg-white/90 backdrop-blur-sm text-black"
-        : "py-12 text-white";
+        : "py-12 text-black";
 
     return (
         <header className={`${baseClass} ${scrolledClass}`}>

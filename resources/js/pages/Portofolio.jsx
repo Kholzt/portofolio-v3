@@ -10,9 +10,9 @@ const Portofolio = ({ data }) => {
            <Navbar/>
 
                 <section id="hero" className="mb-4">
-                    <div className="container ">
+                    <div className="container min-h-[70vh] flex items-center">
                         <div
-                            className="grid md:grid-cols-2 grid-cols-1 min-h-[70vh]"
+                            className="grid md:grid-cols-2 grid-cols-1 "
                         >
                             <div className="">
                                 <h1>Muhammad Nor Kholit</h1>
@@ -57,7 +57,7 @@ const Portofolio = ({ data }) => {
                             </h4>
                             <span className="particle" />
                         </div>
-                        <div id="project-list" className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 g-4">
+                        <div id="project-list" className="grid lg:grid-cols-3 gap-4 md:grid-cols-2 grid-cols-1 ">
                             {portofolio?.map((porto, index) => {
                                 const resultFormatDate = formatDate(
                                     porto.created_at
