@@ -9,7 +9,7 @@ const Portofolio = ({ data }) => {
      
            <Navbar/>
 
-                <section id="hero" className="mb-4">
+                <section id="hero" className="pb-10">
                     <div className="container min-h-[70vh] flex items-center">
                         <div
                             className="grid md:grid-cols-2 grid-cols-1 "
