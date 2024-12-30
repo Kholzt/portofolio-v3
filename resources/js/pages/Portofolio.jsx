@@ -9,7 +9,7 @@ const Portofolio = ({ data }) => {
      
            <Navbar/>
 
-                <section id="hero" className="pb-10">
+                <section id="hero" >
                     <div className="container min-h-[70vh] flex items-center">
                         <div
                             className="grid md:grid-cols-2 grid-cols-1 "
@@ -48,7 +48,7 @@ const Portofolio = ({ data }) => {
                         </div>
                     </div>
                 </section>
-                <section id="projects" className="pt-10">
+                <section id="projects">
                     <div className="container">
                         <div className="d-flex gap-2 align-items-center mb-4">
                             <span className="particle" />
