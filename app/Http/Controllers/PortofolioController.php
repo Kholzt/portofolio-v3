@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Portofolio;
 use Illuminate\Http\Request;
 
-class PortofolioController
+class PortofolioController extends Controller
 {
     /**
      * Display a listing of the resource.
