@@ -41,7 +41,7 @@ const Portofolio: React.FC<PortofolioProps> = ({ data }) => {
                                     Dowload CV
                                 </PrimaryButton>
                                 <PrimaryButton
-                                    href="https://github.com/Kholzt"
+                                    href={user.biodata.github}
                                     className=" md:w-auto w-full justify-center"
                                 >
                                     <i className="fa-brands fa-github me-2" />{" "}

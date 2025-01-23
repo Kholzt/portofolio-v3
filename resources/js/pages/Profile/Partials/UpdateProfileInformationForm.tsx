@@ -27,6 +27,9 @@ export default function UpdateProfileInformation({
             place_of_birth: user.biodata?.place_of_birth,
             about_me: user.biodata?.about_me,
             photo: user.biodata?.photo,
+            github: user.biodata?.github,
+            linkedin: user.biodata?.linkedin,
+            instagram: user.biodata?.instagram,
         });
 
     const submit: FormEventHandler = (e) => {
@@ -57,7 +60,6 @@ export default function UpdateProfileInformation({
                         value={data.name}
                         onChange={(e) => setData("name", e.target.value)}
                         required
-                        isFocused
                         autoComplete="name"
                     />
 
@@ -138,7 +140,6 @@ export default function UpdateProfileInformation({
                             setData("place_of_birth", e.target.value)
                         }
                         required
-                        isFocused
                         autoComplete="place_of_birth"
                     />
 
@@ -148,26 +149,48 @@ export default function UpdateProfileInformation({
                     />
                 </div>
                 <div>
-                    <InputLabel htmlFor="date_of_birth" value="Date Of Birth" />
+                    <InputLabel htmlFor="github" value="Github" />
 
                     <TextInput
-                        id="date_of_birth"
-                        type="date"
+                        id="github"
+                        type="text"
                         className="mt-1 block w-full"
-                        value={data.date_of_birth}
-                        onChange={(e) =>
-                            setData("date_of_birth", e.target.value)
-                        }
-                        required
-                        isFocused
-                        autoComplete="date_of_birth"
+                        value={data.github}
+                        onChange={(e) => setData("github", e.target.value)}
+                        autoComplete="github"
                     />
 
-                    <InputError
-                        className="mt-2"
-                        message={errors.date_of_birth}
-                    />
+                    <InputError className="mt-2" message={errors.github} />
                 </div>
+                <div>
+                    <InputLabel htmlFor="instagram" value="Instagram" />
+
+                    <TextInput
+                        id="instagram"
+                        type="text"
+                        className="mt-1 block w-full"
+                        value={data.instagram}
+                        onChange={(e) => setData("instagram", e.target.value)}
+                        autoComplete="instagram"
+                    />
+
+                    <InputError className="mt-2" message={errors.instagram} />
+                </div>
+                <div>
+                    <InputLabel htmlFor="linkedin" value="Linkedin" />
+
+                    <TextInput
+                        id="linkedin"
+                        type="text"
+                        className="mt-1 block w-full"
+                        value={data.linkedin}
+                        onChange={(e) => setData("linkedin", e.target.value)}
+                        autoComplete="linkedin"
+                    />
+
+                    <InputError className="mt-2" message={errors.linkedin} />
+                </div>
+
                 {mustVerifyEmail && user.email_verified_at === null && (
                     <div>
                         <p className="mt-2 text-sm text-gray-800">

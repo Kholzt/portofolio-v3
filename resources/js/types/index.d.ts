@@ -12,6 +12,9 @@ export interface Biodata {
     place_of_birth?: string;
     about_me?: string;
     photo?: string;
+    github?: string;
+    instagram?: string;
+    linkedin?: string;
 }
 
 export type PageProps<
