@@ -1,25 +1,20 @@
 import React from "react";
 import { formatDate } from "../helpers/helpers";
-import Navbar from "../components/Navbar";
-import PrimaryButton from "@/components/PrimaryButton";
+import Navbar from "../Components/Navbar";
+import PrimaryButton from "@/Components/PrimaryButton";
 import { Head } from "@inertiajs/react";
-
-interface PortofolioItemProps {
-    thumbnail: string;
-    title: string;
-    description: string;
-    technologies: string[];
-    created_at: string;
-}
+import { BiodataProps, PortofolioItemProps } from "@/types/all";
+import { User } from "@/types";
 
 interface PortofolioProps {
     data: {
         portofolio: PortofolioItemProps[];
+        user: User;
     };
 }
 
 const Portofolio: React.FC<PortofolioProps> = ({ data }) => {
-    const { portofolio } = data;
+    const { portofolio, user } = data;
 
     return (
         <div>
@@ -30,16 +25,11 @@ const Portofolio: React.FC<PortofolioProps> = ({ data }) => {
                 <div className="container min-h-[70vh] flex items-center">
                     <div className="grid md:grid-cols-2 grid-cols-1">
                         <div>
-                            <h1 className="text-4xl font-medium mb-2">
-                                Muhammad Nor Kholit
+                            <h1 className="text-4xl font-medium mb-2  md:text-start text-center">
+                                {user.name}
                             </h1>
-                            <p className="text-base text-slate-600 mb-4">
-                                Saya adalah Junior Programmer dengan pengalaman
-                                dalam pengembangan aplikasi web menggunakan
-                                JavaScript dan Java. Saya memiliki keterampilan
-                                dalam framework seperti React dan Laravel, serta
-                                semangat untuk terus belajar dan berkontribusi
-                                dalam proyek-proyek inovatif.
+                            <p className="text-base text-slate-600 mb-4 md:text-start text-center">
+                                {user.biodata?.about_me}
                             </p>
 
                             <div className="mb-4 flex  gap-2">
@@ -58,14 +48,25 @@ const Portofolio: React.FC<PortofolioProps> = ({ data }) => {
                                     Repository
                                 </PrimaryButton>
                             </div>
-                            <div>
-                                <h6 className="mb-0">Projek</h6>
-                                <h1
-                                    className="font-medium text-xl"
-                                    id="project-count"
-                                >
-                                    {portofolio.length}
-                                </h1>
+                            <div className="flex gap-4">
+                                <div>
+                                    <h6 className="mb-0">Projek</h6>
+                                    <h1
+                                        className="font-medium text-xl"
+                                        id="project-count"
+                                    >
+                                        {portofolio.length}
+                                    </h1>
+                                </div>
+                                <div>
+                                    <h6 className="mb-0">Produk</h6>
+                                    <h1
+                                        className="font-medium text-xl"
+                                        id="project-count"
+                                    >
+                                        {portofolio.length}
+                                    </h1>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -76,10 +77,11 @@ const Portofolio: React.FC<PortofolioProps> = ({ data }) => {
                     <div className="d-flex gap-2 align-items-center mb-4">
                         <span className="particle" />
                         <h4 className="inline-block font-bold mb-0 text-lg ">
-                            List Projek
+                            Karya dan Proyek Unggulan
                         </h4>
                         <p className="text-base text-slate-600">
-                            Daftar Projek yang pernah saya buat
+                            Inilah beberapa proyek menarik yang telah saya
+                            kembangkan:{" "}
                         </p>
                         <span className="particle" />
                     </div>
@@ -118,10 +120,10 @@ const PortofolioItem: React.FC<PortofolioItemComponentProps> = ({
     resultFormatDate,
 }) => (
     <div className="col-lg-4 col-md-6 col-12">
-        <article className="border rounded-md overflow-hidden">
+        <article className="border rounded-md overflow-hidden h-full ">
             <img
                 src={porto.thumbnail}
-                className=" aspect-video"
+                className=" aspect-video object-cover object-top"
                 alt={porto.title}
             />
             <div className="p-4">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Biodata;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -35,6 +36,7 @@ class ProfileController extends Controller
             $request->user()->email_verified_at = null;
         }
 
+        Biodata::where("id_user", auth()->user()->id)->update($request->except(["name", "email"]));
         $request->user()->save();
 
         return Redirect::route('profile.edit');

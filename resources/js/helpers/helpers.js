@@ -4,5 +4,5 @@ export function formatDate(timestamp) {
 
     // Format tanggal
     const options = { year: "numeric", month: "long", day: "numeric" };
-    return date.toLocaleDateString("en-US", options); // Atau gunakan "id-ID" untuk format Indonesia
+    return date.toLocaleDateString("id-ID", options); // Atau gunakan "id-ID" untuk format Indonesia
 }

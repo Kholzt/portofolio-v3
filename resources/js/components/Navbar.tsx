@@ -28,7 +28,7 @@ interface NavbarMobileProps extends NavbarProps {
 const Navbar: React.FC = () => {
     const [scrolled, setScrolled] = useState<boolean>(false);
     const [active, setActive] = useState<boolean>(false);
-    const user = usePage<PageProps>()?.props?.auth?.user || null;
+    const user = usePage<PageProps | any>()?.props?.auth?.user || null;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -93,12 +93,21 @@ const NavbarMobile: React.FC<NavbarMobileProps> = ({
                             </Link>
                         </li>
                         <li>
-                            <PrimaryButton
-                                className="w-full justify-center"
-                                href={route("login")}
-                            >
-                                Login
-                            </PrimaryButton>
+                            {user ? (
+                                <PrimaryButton
+                                    className="w-full justify-center"
+                                    href={route("dashboard")}
+                                >
+                                    Dashboard
+                                </PrimaryButton>
+                            ) : (
+                                <PrimaryButton
+                                    className="w-full justify-center"
+                                    href={route("login")}
+                                >
+                                    Login
+                                </PrimaryButton>
+                            )}
                         </li>
                     </ul>
                 </nav>
@@ -134,7 +143,13 @@ const NavbarWeb: React.FC<NavbarProps> = ({ scrolled, user }) => {
                         </li>
                     </ul>
                 </nav>
-                <PrimaryButton href={route("login")}>Login</PrimaryButton>
+                {user ? (
+                    <PrimaryButton href={route("dashboard")}>
+                        Dashboard
+                    </PrimaryButton>
+                ) : (
+                    <PrimaryButton href={route("login")}>Login</PrimaryButton>
+                )}
             </div>
         </header>
     );
