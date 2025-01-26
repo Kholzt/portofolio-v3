@@ -20,6 +20,8 @@ const Form: React.FC<any> = ({ data }) => {
         title: data.data.title,
         description: data.data.description,
         thumbnail: "",
+        start_date: data.data.start_date,
+        end_date: data.data.end_date,
     });
 
     const handleSubmit = (e: FormEvent) => {
@@ -118,6 +120,60 @@ const Form: React.FC<any> = ({ data }) => {
 
                                         <InputError
                                             message={errors.description}
+                                            className="mt-2"
+                                        />
+                                    </div>
+                                    <div className="mb-2">
+                                        <InputLabel
+                                            htmlFor="start_date"
+                                            value="Tanggal Awal"
+                                        />
+
+                                        <TextInput
+                                            id="start_date"
+                                            type="date"
+                                            name="start_date"
+                                            placeholder="Judul Projek"
+                                            value={formData.start_date}
+                                            className="mt-1 block w-full"
+                                            autoComplete="current-start_date"
+                                            onChange={(e: any) =>
+                                                setData(
+                                                    "start_date",
+                                                    e.target.value
+                                                )
+                                            }
+                                        />
+
+                                        <InputError
+                                            message={errors.start_date}
+                                            className="mt-2"
+                                        />
+                                    </div>
+                                    <div className="mb-2">
+                                        <InputLabel
+                                            htmlFor="end_date"
+                                            value="Tanggal Akhir"
+                                        />
+
+                                        <TextInput
+                                            id="end_date"
+                                            type="date"
+                                            name="end_date"
+                                            placeholder="Judul Projek"
+                                            value={formData.end_date}
+                                            className="mt-1 block w-full"
+                                            autoComplete="current-end_date"
+                                            onChange={(e: any) =>
+                                                setData(
+                                                    "end_date",
+                                                    e.target.value
+                                                )
+                                            }
+                                        />
+
+                                        <InputError
+                                            message={errors.end_date}
                                             className="mt-2"
                                         />
                                     </div>

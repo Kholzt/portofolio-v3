@@ -126,6 +126,26 @@ export default function UpdateProfileInformation({
                     <InputError className="mt-2" message={errors.address} />
                 </div>
                 <div>
+                    <InputLabel htmlFor="date_of_birth" value="Date Of Birth" />
+
+                    <TextInput
+                        id="date_of_birth"
+                        type="date"
+                        className="mt-1 block w-full"
+                        value={data.date_of_birth}
+                        onChange={(e) =>
+                            setData("date_of_birth", e.target.value)
+                        }
+                        required
+                        autoComplete="date_of_birth"
+                    />
+
+                    <InputError
+                        className="mt-2"
+                        message={errors.date_of_birth}
+                    />
+                </div>
+                <div>
                     <InputLabel
                         htmlFor="place_of_birth"
                         value="Place Of Birth"

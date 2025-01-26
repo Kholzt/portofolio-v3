@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Portofolio extends Model
 {
     protected $table = "portofolio";
-    protected $fillable = ["title", "description", "thumbnail"];
+    protected $fillable = ["title", "description", "thumbnail", 'start_date', "end_date"];
 
 
     protected function thumbnail(): Attribute

@@ -12,7 +12,10 @@ class ProjekController extends Controller
      */
     public function index()
     {
-        $portofolio = Portofolio::orderBy("id", "desc")->paginate(10);
+        $portofolio = Portofolio::orderBy("end_date", "desc")
+            // ->orderBy("start_date", "desc")
+            ->paginate(10);
+
         $params["data"] = (object)[
             "portofolio" => $portofolio
         ];
@@ -31,7 +34,9 @@ class ProjekController extends Controller
             "data" => (object)[
                 "title" => "",
                 "description" => "",
-                "thumbnail" => ""
+                "thumbnail" => "",
+                "start_date" => "",
+                "end_date" => "",
             ]
 
         ];
@@ -46,6 +51,8 @@ class ProjekController extends Controller
         request()->validate([
             "title" => "required",
             "description" => "required",
+            "start_date" => "required",
+            "end_date" => "required",
             "thumbnail" => "required|image:jpg,png,jpeg,svg|max:2048"
         ]);
 
@@ -58,6 +65,8 @@ class ProjekController extends Controller
             "thumbnail" => $nama_file,
             "title" => request()->title,
             "description" => request()->description,
+            "start_date" => request()->start_date,
+            "end_date" => request()->end_date,
         ];
 
         Portofolio::create($data);
@@ -86,7 +95,9 @@ class ProjekController extends Controller
             "data" => (object)[
                 "title" => $portofolio->title,
                 "description" => $portofolio->description,
-                "thumbnail" => asset("assets/projek/" . $portofolio->thumbnail)
+                "thumbnail" => asset("assets/projek/" . $portofolio->thumbnail),
+                "start_date" => $portofolio->start_date,
+                "end_date" => $portofolio->end_date,
             ]
 
         ];
@@ -101,6 +112,8 @@ class ProjekController extends Controller
         request()->validate([
             "title" => "required",
             "description" => "required",
+            "start_date" => "required",
+            "end_date" => "required",
             "thumbnail" => "sometimes|nullable|image:jpg,png,jpeg,svg|max:2048"
         ]);
 
@@ -109,6 +122,8 @@ class ProjekController extends Controller
         $data = [
             "title" => request()->title,
             "description" => request()->description,
+            "start_date" => request()->start_date,
+            "end_date" => request()->end_date,
         ];
         if ($file) {
             $oldPath = public_path("assets/projek/" .

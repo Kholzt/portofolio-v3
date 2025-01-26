@@ -3,6 +3,8 @@ export interface PortofolioItemProps {
     thumbnail: string;
     title: string;
     description: string;
+    start_date: string;
+    end_date: string;
     technologies: string[];
     created_at: string;
 }

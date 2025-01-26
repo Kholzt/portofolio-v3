@@ -90,14 +90,13 @@ const Portofolio: React.FC<PortofolioProps> = ({ data }) => {
                         className="grid lg:grid-cols-3 gap-4 md:grid-cols-2 grid-cols-1"
                     >
                         {portofolio?.map((porto, index) => {
-                            const resultFormatDate = formatDate(
-                                porto.created_at
-                            );
+                            const startDate = formatDate(porto.start_date);
+                            const endDate = formatDate(porto.end_date);
                             return (
                                 <PortofolioItem
                                     key={index}
                                     porto={porto}
-                                    resultFormatDate={resultFormatDate}
+                                    resultFormatDate={`${startDate} - ${endDate}`}
                                 />
                             );
                         })}

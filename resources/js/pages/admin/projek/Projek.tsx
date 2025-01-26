@@ -42,7 +42,7 @@ const Projek: React.FC<ProjekProps> = ({ data }) => {
                                     Nama Projek
                                 </th>
                                 <th className="border-b px-4 py-4" align="left">
-                                    Tanggal Dibuat
+                                    Tanggal Pembuatan
                                 </th>
                                 <th className="border-b px-4 py-4" align="left">
                                     Aksi
@@ -50,9 +50,10 @@ const Projek: React.FC<ProjekProps> = ({ data }) => {
                             </thead>
                             <tbody>
                                 {data.portofolio.data.map((porto, i) => {
-                                    const resultFormatDate = formatDate(
-                                        porto.created_at
+                                    const startDate = formatDate(
+                                        porto.start_date
                                     );
+                                    const endDate = formatDate(porto.end_date);
                                     i++;
                                     return (
                                         <tr
@@ -73,7 +74,7 @@ const Projek: React.FC<ProjekProps> = ({ data }) => {
                                                 {porto.title}
                                             </td>
                                             <td className="px-4 py-2 text-start ">
-                                                {resultFormatDate}
+                                                {startDate} - {endDate}
                                             </td>
                                             <td className="px-4 py-2 text-start ">
                                                 <Link

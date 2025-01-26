@@ -40,6 +40,12 @@ export default function Authenticated({
                                 >
                                     Projek
                                 </NavLink>
+                                <NavLink
+                                    href={route("biodata")}
+                                    active={route().current("biodata")}
+                                >
+                                    Biodata
+                                </NavLink>
                             </div>
                         </div>
 
@@ -146,6 +152,18 @@ export default function Authenticated({
                             active={route().current("dashboard")}
                         >
                             Dashboard
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route("projek.index")}
+                            active={route().current("projek.index")}
+                        >
+                            Projek
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route("biodata")}
+                            active={route().current("biodata")}
+                        >
+                            Biodata
                         </ResponsiveNavLink>
                     </div>
 
