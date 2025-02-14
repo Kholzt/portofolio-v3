@@ -3,6 +3,7 @@ export interface PortofolioItemProps {
     thumbnail: string;
     title: string;
     description: string;
+    details: string;
     start_date: string;
     end_date: string;
     technologies: string[];
@@ -22,4 +23,11 @@ export interface BiodataProps {
     place_of_birth?: string;
     about_me?: string;
     photo?: string;
+}
+export interface AchievementProps {
+    id:string,
+    title?: string;
+    description?: string;
+    attachment1?: string;
+    attachment2?: string;
 }

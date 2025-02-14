@@ -35,6 +35,7 @@ class ProjekController extends Controller
                 "title" => "",
                 "description" => "",
                 "thumbnail" => "",
+                "details" => "",
                 "start_date" => "",
                 "end_date" => "",
             ]
@@ -51,6 +52,7 @@ class ProjekController extends Controller
         request()->validate([
             "title" => "required",
             "description" => "required",
+            "details" => "required",
             "start_date" => "required",
             "end_date" => "required",
             "thumbnail" => "required|image:jpg,png,jpeg,svg|max:2048"
@@ -65,6 +67,7 @@ class ProjekController extends Controller
             "thumbnail" => $nama_file,
             "title" => request()->title,
             "description" => request()->description,
+            "details" => request()->details,
             "start_date" => request()->start_date,
             "end_date" => request()->end_date,
         ];
@@ -96,6 +99,7 @@ class ProjekController extends Controller
                 "title" => $portofolio->title,
                 "description" => $portofolio->description,
                 "thumbnail" => asset("assets/projek/" . $portofolio->thumbnail),
+                "details" => $portofolio->details,
                 "start_date" => $portofolio->start_date,
                 "end_date" => $portofolio->end_date,
             ]
@@ -112,6 +116,7 @@ class ProjekController extends Controller
         request()->validate([
             "title" => "required",
             "description" => "required",
+            "details" => "required",
             "start_date" => "required",
             "end_date" => "required",
             "thumbnail" => "sometimes|nullable|image:jpg,png,jpeg,svg|max:2048"
@@ -122,6 +127,7 @@ class ProjekController extends Controller
         $data = [
             "title" => request()->title,
             "description" => request()->description,
+            "details" => request()->details,
             "start_date" => request()->start_date,
             "end_date" => request()->end_date,
         ];
@@ -148,8 +154,5 @@ class ProjekController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
-    }
+    public function destroy(string $id) {}
 }

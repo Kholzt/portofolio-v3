@@ -46,6 +46,12 @@ export default function Authenticated({
                                 >
                                     Biodata
                                 </NavLink>
+                                <NavLink
+                                    href={route("achievement.index")}
+                                    active={route().current("achievement.index")}
+                                >
+                                    Achievement
+                                </NavLink>
                             </div>
                         </div>
 

@@ -20,6 +20,7 @@ const Form: React.FC<any> = ({ data }) => {
         title: data.data.title,
         description: data.data.description,
         thumbnail: "",
+        details: data.data.details,
         start_date: data.data.start_date,
         end_date: data.data.end_date,
     });
@@ -28,13 +29,6 @@ const Form: React.FC<any> = ({ data }) => {
         e.preventDefault();
 
         post(data.action_form);
-        // if (data.method == "POST") {
-        // } else {
-        //     post(data.action_form, {
-        //         forceFormData: true,
-        //         onSuccess: () => console.log("berhaisl"),
-        //     });
-        // }
     };
     return (
         <Authenticated
@@ -62,10 +56,9 @@ const Form: React.FC<any> = ({ data }) => {
                                     />
                                     <UploadZone
                                         accept="image/*"
-                                        maxFiles={1}
                                         className="mt-1"
-                                        onFilesChange={(e: any) =>
-                                            setData("thumbnail", e[0].file)
+                                        onFileChange={(e: any) =>
+                                            setData("thumbnail", e)
                                         }
                                     />
                                     <InputError
@@ -101,7 +94,7 @@ const Form: React.FC<any> = ({ data }) => {
                                     <div className="">
                                         <InputLabel
                                             htmlFor="description"
-                                            value="Keterangan"
+                                            value="Keterangan Projek"
                                         />
                                         <Textarea
                                             rows={4}
@@ -123,60 +116,79 @@ const Form: React.FC<any> = ({ data }) => {
                                             className="mt-2"
                                         />
                                     </div>
-                                    <div className="mb-2">
-                                        <InputLabel
-                                            htmlFor="start_date"
-                                            value="Tanggal Awal"
-                                        />
+                                </div>
+                                <div className="mb-2">
+                                    <InputLabel
+                                        htmlFor="start_date"
+                                        value="Tanggal Awal"
+                                    />
 
-                                        <TextInput
-                                            id="start_date"
-                                            type="date"
-                                            name="start_date"
-                                            placeholder="Judul Projek"
-                                            value={formData.start_date}
-                                            className="mt-1 block w-full"
-                                            autoComplete="current-start_date"
-                                            onChange={(e: any) =>
-                                                setData(
-                                                    "start_date",
-                                                    e.target.value
-                                                )
-                                            }
-                                        />
+                                    <TextInput
+                                        id="start_date"
+                                        type="date"
+                                        name="start_date"
+                                        placeholder="Judul Projek"
+                                        value={formData.start_date}
+                                        className="mt-1 block w-full"
+                                        autoComplete="current-start_date"
+                                        onChange={(e: any) =>
+                                            setData(
+                                                "start_date",
+                                                e.target.value
+                                            )
+                                        }
+                                    />
 
-                                        <InputError
-                                            message={errors.start_date}
-                                            className="mt-2"
-                                        />
-                                    </div>
-                                    <div className="mb-2">
-                                        <InputLabel
-                                            htmlFor="end_date"
-                                            value="Tanggal Akhir"
-                                        />
+                                    <InputError
+                                        message={errors.start_date}
+                                        className="mt-2"
+                                    />
+                                </div>
+                                <div className="mb-2">
+                                    <InputLabel
+                                        htmlFor="end_date"
+                                        value="Tanggal Akhir"
+                                    />
 
-                                        <TextInput
-                                            id="end_date"
-                                            type="date"
-                                            name="end_date"
-                                            placeholder="Judul Projek"
-                                            value={formData.end_date}
-                                            className="mt-1 block w-full"
-                                            autoComplete="current-end_date"
-                                            onChange={(e: any) =>
-                                                setData(
-                                                    "end_date",
-                                                    e.target.value
-                                                )
-                                            }
-                                        />
+                                    <TextInput
+                                        id="end_date"
+                                        type="date"
+                                        name="end_date"
+                                        placeholder="Judul Projek"
+                                        value={formData.end_date}
+                                        className="mt-1 block w-full"
+                                        autoComplete="current-end_date"
+                                        onChange={(e: any) =>
+                                            setData("end_date", e.target.value)
+                                        }
+                                    />
 
-                                        <InputError
-                                            message={errors.end_date}
-                                            className="mt-2"
-                                        />
-                                    </div>
+                                    <InputError
+                                        message={errors.end_date}
+                                        className="mt-2"
+                                    />
+                                </div>
+                                <div className="md:col-span-2">
+                                    <InputLabel
+                                        htmlFor="details"
+                                        value="Keterangan Pengerjaan"
+                                    />
+                                    <Textarea
+                                        rows={4}
+                                        value={formData.details}
+                                        onChange={(e: any) =>
+                                            setData("details", e.target.value)
+                                        }
+                                        name="details"
+                                        placeholder="Keterangan Pengerjaan"
+                                        id="details"
+                                        className="rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 w-full mt-1"
+                                    ></Textarea>
+
+                                    <InputError
+                                        message={errors.details}
+                                        className="mt-2"
+                                    />
                                 </div>
                             </div>
                             <div className="flex justify-end p-4">

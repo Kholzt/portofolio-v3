@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjekController;
@@ -19,6 +20,8 @@ Route::prefix("c/admin")->middleware("auth")->group(function () {
     })->name('biodata');
     Route::resource("projek", ProjekController::class);
     Route::post("projek/{id}", [ProjekController::class, "update"])->name("projek.update");
+    Route::resource("achievement", AchievementController::class);
+    Route::post("achievement/{id}", [AchievementController::class, "update"])->name("achievement.update");
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

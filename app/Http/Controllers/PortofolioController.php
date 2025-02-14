@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Achievement;
 use App\Models\Biodata;
 use App\Models\Portofolio;
 use App\Models\User;
@@ -15,11 +16,13 @@ class PortofolioController extends Controller
     public function index()
     {
         $portofolio = Portofolio::orderBy("end_date", "desc")->get();
+        $achievement = Achievement::orderBy("id", "desc")->get();
         $user = User::with("biodata")->first();
 
         $params["data"] = (object)[
             "portofolio" => $portofolio,
             "user" => $user,
+            "achievement" => $achievement
         ];
         return inertia("Portofolio", $params);
     }

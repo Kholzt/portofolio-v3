@@ -27,10 +27,13 @@ class BiodataTableSeeder extends Seeder
                 'address' => 'Bataan, Tenggarang, Bondowoso',
                 'date_of_birth' => '2025-01-01',
                 'place_of_birth' => 'Bondowoso, Jawa timur',
-                'about_me' => 'Saya adalah Junior Programmer dengan pengalaman dalam pengembangan aplikasi web menggunakan JavaScript dan Java. Saya memiliki keterampilan dalam framework seperti React dan Laravel, serta semangat untuk terus belajar dan berkontribusi dalam proyek-proyek inovatif.',
+                'about_me' => 'Saya adalah fullstack developer dengan pengalaman 2 tahun  dan saat ini melanjutkan kuliah pada prodi teknik informatika. Saya',
                 'photo' => NULL,
+                'github' => NULL,
+                'linkedin' => NULL,
+                'instagram' => NULL,
                 'created_at' => NULL,
-                'updated_at' => '2025-01-23 07:45:54',
+                'updated_at' => '2025-02-14 10:26:21',
             ),
         ));
         

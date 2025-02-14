@@ -1,67 +1,70 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, useId } from "react";
 
 interface UploadZoneProps {
     accept?: string; // Accepted file types, e.g., "image/*"
-    maxFiles?: number; // Maximum number of files
-    onFilesChange?: (files: { file: File; name: string }[]) => void; // Callback when files change
+    onFileChange?: (file: File | null) => void; // Callback when file changes
     className?: string; // Custom styles for the drop zone
 }
 
 interface FileWithPreview {
-    file: File;
-    preview: string;
-    name: string;
+    file: File | null;
+    preview: string | null;
+    name: string | null;
 }
 
 const UploadZone: React.FC<UploadZoneProps> = ({
-    accept = "*/*",
-    maxFiles = 5,
-    onFilesChange,
+    accept = "image/*", // Only accept images by default
+    onFileChange,
     className = "",
 }) => {
-    const [files, setFiles] = useState<FileWithPreview[]>([]);
+    const [fileWithPreview, setFileWithPreview] = useState<FileWithPreview>({
+        file: null,
+        preview: null,
+        name: null,
+    });
 
     const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-        if (!event.target.files) return;
+        if (!event.target.files || event.target.files.length === 0) {
+          setFileWithPreview({ file: null, preview: null, name: null });
+          if (onFileChange) {
+            onFileChange(null);
+          }
+          return;
+        }
 
-        const selectedFiles = Array.from(event.target.files).map((file) => ({
-            file,
-            preview: URL.createObjectURL(file),
-            name: file.name,
-        }));
+        const selectedFile = event.target.files[0];
 
-        const newFiles = [...files, ...selectedFiles].slice(0, maxFiles);
-        setFiles(newFiles);
+        const newFileWithPreview = {
+            file: selectedFile,
+            preview: URL.createObjectURL(selectedFile),
+            name: selectedFile.name,
+        };
 
-        // Trigger the callback with the files and their names
-        if (onFilesChange) {
-            onFilesChange(newFiles.map(({ file, name }) => ({ file, name })));
+        setFileWithPreview(newFileWithPreview);
+
+        if (onFileChange) {
+            onFileChange(selectedFile);
         }
     };
 
-    const handleRemoveFile = (index: number) => {
-        setFiles((prevFiles) => {
-            // Revoke URL for memory management
-            URL.revokeObjectURL(prevFiles[index].preview);
-            const updatedFiles = prevFiles.filter((_, i) => i !== index);
-
-            // Trigger the callback with the updated files
-            if (onFilesChange) {
-                onFilesChange(
-                    updatedFiles.map(({ file, name }) => ({ file, name }))
-                );
-            }
-
-            return updatedFiles;
-        });
+    const handleRemoveFile = () => {
+        if (fileWithPreview.preview) {
+            URL.revokeObjectURL(fileWithPreview.preview);
+        }
+        setFileWithPreview({ file: null, preview: null, name: null });
+        if (onFileChange) {
+            onFileChange(null);
+        }
     };
+
+    const inputId = useId();
 
     return (
         <div
             className={`flex flex-col items-center p-6 border-2 border-dashed border-gray-300 rounded-lg bg-gray-50 ${className}`}
         >
             <label
-                htmlFor="file-upload"
+                htmlFor={inputId}
                 className="cursor-pointer flex flex-col items-center justify-center w-full h-32 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none"
             >
                 <svg
@@ -79,53 +82,46 @@ const UploadZone: React.FC<UploadZoneProps> = ({
                     ></path>
                 </svg>
                 <span className="text-gray-500 text-sm mt-2">
-                    Drag & drop files here, or click to select
+                    Drag & drop image here, or click to select
                 </span>
+                <input
+                    id={inputId}
+                    type="file"
+                    accept={accept}
+                    className="hidden"
+                    onChange={handleFileChange}
+                />
             </label>
-            <input
-                id="file-upload"
-                type="file"
-                multiple
-                accept={accept}
-                className="hidden"
-                onChange={handleFileChange}
-            />
 
             <div className="mt-4 w-full">
-                {files.length > 0 && (
-                    <ul className="space-y-2">
-                        {files.map((fileWithPreview, index) => (
-                            <li
-                                key={index}
-                                className="flex items-center justify-between p-2 bg-white border border-gray-200 rounded-lg shadow-sm"
-                            >
-                                <div className="flex items-center space-x-4">
-                                    <img
-                                        src={fileWithPreview.preview}
-                                        alt={fileWithPreview.name}
-                                        className="w-12 h-12 object-cover rounded-lg"
-                                    />
-                                    <div>
-                                        <p className="text-sm font-medium text-gray-700">
-                                            {fileWithPreview.name}
-                                        </p>
-                                        <p className="text-xs text-gray-500">
-                                            {(
-                                                fileWithPreview.file.size / 1024
-                                            ).toFixed(2)}{" "}
-                                            KB
-                                        </p>
-                                    </div>
-                                </div>
-                                <button
-                                    onClick={() => handleRemoveFile(index)}
-                                    className="text-red-500 hover:text-red-700 focus:outline-none"
-                                >
-                                    Remove
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
+                {fileWithPreview.preview && (
+                    <div className="flex items-center justify-between p-2 bg-white border border-gray-200 rounded-lg shadow-sm">
+                        <div className="flex items-center space-x-4">
+                            <img
+                                src={fileWithPreview.preview}
+                                className="w-12 h-12 object-cover rounded-lg"
+                            />
+                            <div>
+                                <p className="text-sm font-medium text-gray-700">
+                                    {fileWithPreview.name}
+                                </p>
+                                {fileWithPreview.file && (
+                                  <p className="text-xs text-gray-500">
+                                      {(
+                                          fileWithPreview.file.size / 1024
+                                      ).toFixed(2)}{" "}
+                                      KB
+                                  </p>
+                                )}
+                            </div>
+                        </div>
+                        <button
+                            onClick={handleRemoveFile}
+                            className="text-red-500 hover:text-red-700 focus:outline-none"
+                        >
+                            Remove
+                        </button>
+                    </div>
                 )}
             </div>
         </div>
