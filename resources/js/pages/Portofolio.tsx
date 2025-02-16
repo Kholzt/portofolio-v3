@@ -6,7 +6,6 @@ import { Head, usePage } from "@inertiajs/react";
 import { AchievementProps, BiodataProps, PortofolioItemProps } from "@/types/all";
 import { User } from "@/types";
 import { jsPDF } from "jspdf";
-import CV from "./CV";
 
 interface PortofolioProps {
     data: {
