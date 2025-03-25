@@ -96,14 +96,14 @@ const NavbarMobile: React.FC<NavbarMobileProps> = ({
                             {user ? (
                                 <PrimaryButton
                                     className="w-full justify-center"
-                                    href={route("dashboard")}
+                                    href={"/admin"}
                                 >
                                     Dashboard
                                 </PrimaryButton>
                             ) : (
                                 <PrimaryButton
                                     className="w-full justify-center"
-                                    href={route("login")}
+                                    href={"/admin/login"}
                                 >
                                     Login
                                 </PrimaryButton>
@@ -144,11 +144,11 @@ const NavbarWeb: React.FC<NavbarProps> = ({ scrolled, user }) => {
                     </ul>
                 </nav>
                 {user ? (
-                    <PrimaryButton href={route("dashboard")}>
+                    <PrimaryButton href={"/admin"}>
                         Dashboard
                     </PrimaryButton>
                 ) : (
-                    <PrimaryButton href={route("login")}>Login</PrimaryButton>
+                    <PrimaryButton href={"/admin/login"}>Login</PrimaryButton>
                 )}
             </div>
         </header>

@@ -11,15 +11,15 @@ class Portofolio extends Model
     protected $fillable = ["title", "description", "thumbnail", "details", 'start_date', "end_date"];
 
 
-    protected function thumbnail(): Attribute
-    {
-        return Attribute::make(
-            get: fn(string $value) => str_contains($value, 'https') ? $value : asset("assets/projek/" . $value),
-        );
-    }
-    public function getRealThumbnail($useReal = false): string
-    {
-        $value = $this->attributes['thumbnail'];
-        return $value;
-    }
+    // protected function thumbnail(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn(string $value) => str_contains($value, 'https') ? $value : asset("storage/projek/" . $value),
+    //     );
+    // }
+    // public function getRealThumbnail($useReal = false): string
+    // {
+    //     $value = $this->attributes['thumbnail'];
+    //     return $value;
+    // }
 }
