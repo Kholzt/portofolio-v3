@@ -31,3 +31,8 @@ export interface AchievementProps {
     attachment1?: string;
     attachment2?: string;
 }
+
+export enum LayoutType {
+    GRID = "grid",
+    LIST = "list",
+}
