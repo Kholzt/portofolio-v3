@@ -24,7 +24,7 @@ export function Achievment({ achievement }: { achievement: AchievementProps[] })
                         <article key={index} className="relative border group rounded-md overflow-hidden h-full">
                             <figure className="w-full">
                                 <img
-                                    src={achi.attachment1.includes("https") ? achi.attachment1 : `storage/${achi.attachment1}`}
+                                    src={`storage/${achi.attachment1}`}
                                     className="aspect-video object-cover object-top w-full"
                                     alt={achi.title} />
                             </figure>
