@@ -37,14 +37,14 @@ class AchievementsResource extends Resource
                     ->visibility('public')
                     ->disk("public")
                     ->acceptedFileTypes(["image/*"])
-                    ->directory("projek"),
+                    ->directory("Achievement"),
                 FileUpload::make('attachment2')->nullable()
                     ->image()
                     ->imagePreviewHeight("150") // Menampilkan preview gambar
                     ->visibility('public')
                     ->disk("public")
                     ->acceptedFileTypes(["image/*"])
-                    ->directory("projek"),
+                    ->directory("Achievement"),
             ]);
     }
     protected function getCreateAction(): Action
