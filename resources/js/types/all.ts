@@ -26,9 +26,9 @@ export interface BiodataProps {
 }
 export interface AchievementProps {
     id:string,
-    title?: string;
+    title: string;
     description?: string;
-    attachment1?: string;
+    attachment1: string;
     attachment2?: string;
 }
 

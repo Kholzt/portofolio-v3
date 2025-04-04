@@ -20,7 +20,8 @@ class Biodata extends Page implements HasForms
     use InteractsWithForms;
     protected static ?string $model = User::class;
 
-    protected static ?string $navigationGroup = 'Settings';
+    protected static ?string $navigationGroup = 'My Data';
+    protected static ?int $navigationSort = 3;
     protected static string $view = 'filament.pages.biodata';
 
     public ?array $data = [];

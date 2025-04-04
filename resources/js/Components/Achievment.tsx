@@ -1,7 +1,7 @@
 import React from "react";
 import { AchievementProps } from "@/types/all";
 
-export function Achievment({achievement}:{achievement: AchievementProps[]}) {
+export function Achievment({ achievement }: { achievement: AchievementProps[] }) {
     return <section id="achievement">
         <div className="container">
             <div className="d-flex gap-2 align-items-center mb-4">
@@ -24,7 +24,7 @@ export function Achievment({achievement}:{achievement: AchievementProps[]}) {
                         <article key={index} className="relative border group rounded-md overflow-hidden h-full">
                             <figure className="w-full">
                                 <img
-                                    src={achi.attachment1}
+                                    src={achi.attachment1.includes("https") ? achi.attachment1 : `storage/${achi.attachment1}`}
                                     className="aspect-video object-cover object-top w-full"
                                     alt={achi.title} />
                             </figure>
