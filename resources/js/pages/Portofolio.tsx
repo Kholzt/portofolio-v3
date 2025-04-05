@@ -12,13 +12,14 @@ import PrimaryButton from "@/Components/PrimaryButton";
 interface PortofolioProps {
     data: {
         portofolio: PortofolioItemProps[];
+        experience: PortofolioItemProps[];
         user: User;
         achievement: AchievementProps[];
     };
 }
 
 const Landing: React.FC<PortofolioProps> = ({ data }) => {
-    const { portofolio, user, achievement } = data;
+    const { portofolio, user, achievement, experience } = data;
     const [Layout, setLayout] = useState(LayoutType.GRID);
     const [activeSection, setActiveSection] = useState<string | null>("about");
     const circleRef = useRef<HTMLDivElement>(null);
@@ -61,9 +62,9 @@ const Landing: React.FC<PortofolioProps> = ({ data }) => {
 
             // Cek apakah mouse berada dalam elemen dengan class "hover-area"
             // if (target.closest(".move-circle")) {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                isMove = true;
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            isMove = true;
             // }
         };
 
@@ -93,18 +94,18 @@ const Landing: React.FC<PortofolioProps> = ({ data }) => {
 
     return (
         <div className="bg-gray-800 text-white">
-        <div className="lines">
-            <div className="line"></div>
-            <div className="line"></div>
-            <div className="line"></div>
-            <div className="line"></div>
-            <div className="line"></div>
-            <div className="line"></div>
-            <div className="line"></div>
-            <div className="line"></div>
-            <div className="line"></div>
-            <div className="line"></div>
-        </div>
+            <div className="lines">
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+            </div>
             <div ref={circleRef} className="circle bg-green-600 md:w-[20%] w-[50%] translate-x-[50%]  rounded-full fixed aspect-square opacity-50 blur-3xl"></div>
 
             <Head title="Portofolio" />
@@ -122,7 +123,7 @@ const Landing: React.FC<PortofolioProps> = ({ data }) => {
                                     <li key={id} className={`before:content-[''] move-circle before:absolute before:transition-all before:left-0 before:top-1/2 before:h-1 before:bg-white before:-translate-y-1/2 relative text-base cursor-pointer transition-all duration-300 py-2 w-full snap-start
                                         ${activeSection === id ? "text-white font-bold pl-14 before:w-10 before:duration-500" : "text-slate-400 hover:text-slate-300 before:w-0 before:duration-200"}`}>
                                         <a href={`#${id}`}>
-                                        {label}
+                                            {label}
                                         </a>
                                     </li>
                                 ))}
@@ -145,7 +146,7 @@ const Landing: React.FC<PortofolioProps> = ({ data }) => {
                                 <h4 className="font-bold mb-2 text-lg move-circle">Pengalaman Saya</h4>
                                 <p className="text-base text-slate-400 move-circle">Inilah beberapa pengalaman saya sebagai web developer</p>
                                 <div id="experience-list" className="mt-4 space-y-6 move-circle">
-                                    {portofolio.map((porto, index) => (
+                                    {experience.map((porto, index) => (
                                         <ExperienceItem layout={Layout} key={index} porto={porto} resultFormatDate={`${formatDate(porto.start_date)} - ${formatDate(porto.end_date)}`} />
                                     ))}
                                 </div>

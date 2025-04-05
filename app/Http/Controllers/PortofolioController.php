@@ -15,7 +15,12 @@ class PortofolioController extends Controller
      */
     public function index()
     {
-        $portofolio = Portofolio::orderBy("end_date", "desc")->get()
+        $portofolio = Portofolio::orderBy("end_date", "desc")->where("type","project")->get()
+        ->map(function ($item) {
+            $item->details = str($item->details)->sanitizeHtml();
+            return $item;
+        });
+        $experience = Portofolio::orderBy("end_date", "desc")->where("type","experience")->get()
         ->map(function ($item) {
             $item->details = str($item->details)->sanitizeHtml();
             return $item;
@@ -25,6 +30,7 @@ class PortofolioController extends Controller
 
         $params["data"] = (object)[
             "portofolio" => $portofolio,
+            "experience" => $experience,
             "user" => $user,
             "achievement" => $achievement
         ];

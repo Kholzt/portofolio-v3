@@ -8,8 +8,10 @@ use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\Tabs\Tab;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\Column;
@@ -37,16 +39,23 @@ class PortofolioResource extends Resource
                 ->disk("public")
                 ->acceptedFileTypes(["image/*"])
                 ->directory("projek")
-
                 ->columnSpanFull(),
-                TextInput::make('title')->required()->columnSpanFull(),
-                // RichEditor::make('description')->required(),
+                TextInput::make('title')->required(),
+                Select::make('type')
+                ->label('Type Portofolio')
+                ->options([
+                    'experience' => 'Pengalaman',
+                    'project' => 'Proyek',
+                ])
+                ->required(),
+                            // RichEditor::make('description')->required(),
                 RichEditor::make('details')->required()->columnSpanFull(),
                 DatePicker::make('start_date')->required(),
                 DatePicker::make('end_date')->required(),
 
             ]);
     }
+
 
     public static function table(Table $table): Table
     {
@@ -62,25 +71,28 @@ class PortofolioResource extends Resource
                         );
                     }
                 ),
-                ImageColumn::make("thumbnail")->searchable()->width(80)->height(50)->alignCenter(),
+                ImageColumn::make("thumbnail")
+                    ->searchable()
+                    ->width(80)
+                    ->height(50)
+                    ->alignCenter(),
                 TextColumn::make("title")->searchable(),
                 TextColumn::make("start_date")->sortable(),
                 TextColumn::make("end_date"),
             ])
-
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
-
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ;
     }
 
     public static function getRelations(): array
