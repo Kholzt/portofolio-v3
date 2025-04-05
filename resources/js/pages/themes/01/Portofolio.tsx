@@ -157,7 +157,7 @@ const Theme1: React.FC<PortofolioProps> = ({ data }) => {
                             <div className="container">
                                 <h4 className="font-bold mb-2 text-lg move-circle">Karya dan Proyek Unggulan</h4>
                                 <p className="text-base text-slate-400 move-circle">Inilah beberapa proyek menarik yang telah saya kembangkan:</p>
-                                <div id="project-list" className="move-circle">
+                                <div id="project-list" className="move-circle space-y-4">
                                     {portofolio.map((porto, index) => (
                                         <PortofolioItem layout={Layout} key={index} porto={porto} resultFormatDate={`${formatDate(porto.start_date)} - ${formatDate(porto.end_date)}`} />
                                     ))}
