@@ -30,7 +30,6 @@ class PortofolioResource extends Resource
 
     public static function form(Form $form): Form
     {
-        // "title", "description", "thumbnail", "details", 'start_date', "end_date"
         return $form
             ->schema([
                 FileUpload::make('thumbnail')->nullable()->image()
@@ -39,7 +38,7 @@ class PortofolioResource extends Resource
                 ->disk("public")
                 ->acceptedFileTypes(["image/*"])
                 ->directory("projek")
-                ->columnSpanFull(),
+                ->columnSpanFull()->openable(),
                 TextInput::make('title')->required(),
                 Select::make('type')
                 ->label('Type Portofolio')
