@@ -7,7 +7,7 @@ use App\Models\Portofolio;
 use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -31,18 +31,20 @@ class PortofolioResource extends Resource
         // "title", "description", "thumbnail", "details", 'start_date', "end_date"
         return $form
             ->schema([
-                TextInput::make('title')->required(),
-                Textarea::make('description')->required(),
-                FileUpload::make('thumbnail')->required()
-                    ->image()
-                    ->imagePreviewHeight("150") // Menampilkan preview gambar
-                    ->visibility('public')
-                    ->disk("public")
-                    ->acceptedFileTypes(["image/*"])
-                    ->directory("projek"),
-                Textarea::make('details')->nullable(),
+                FileUpload::make('thumbnail')->nullable()->image()
+                ->imagePreviewHeight("150") // Menampilkan preview gambar
+                ->visibility('public')
+                ->disk("public")
+                ->acceptedFileTypes(["image/*"])
+                ->directory("projek")
+
+                ->columnSpanFull(),
+                TextInput::make('title')->required()->columnSpanFull(),
+                // RichEditor::make('description')->required(),
+                RichEditor::make('details')->required()->columnSpanFull(),
                 DatePicker::make('start_date')->required(),
                 DatePicker::make('end_date')->required(),
+
             ]);
     }
 

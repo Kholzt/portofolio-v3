@@ -15,7 +15,11 @@ class PortofolioController extends Controller
      */
     public function index()
     {
-        $portofolio = Portofolio::orderBy("end_date", "desc")->get();
+        $portofolio = Portofolio::orderBy("end_date", "desc")->get()
+        ->map(function ($item) {
+            $item->details = str($item->details)->sanitizeHtml();
+            return $item;
+        });
         $achievement = Achievement::orderBy("id", "desc")->get();
         $user = User::with("biodata")->first();
 
