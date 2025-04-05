@@ -5,6 +5,7 @@ namespace App\Filament\Pages;
 use Filament\Actions\Action;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -73,7 +74,7 @@ class Biodata extends Page implements HasForms
             TextInput::make('place_of_birth')
                 ->label('Tempat Lahir')
                 ->required(),
-            Textarea::make('about_me')
+            RichEditor::make('about_me')
                 ->label('Tentang Saya'),
 
             TextInput::make('github')
