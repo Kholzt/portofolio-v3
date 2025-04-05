@@ -12,10 +12,10 @@ export const PortofolioItem: React.FC<PortofolioItemComponentProps> = ({
     porto, resultFormatDate,
 }) => (
     <div>
-        <article className={`rounded-md overflow-hidden h-full md:flex`}>
+        <article className={`rounded-md overflow-hidden h-full `}>
 
             <div className={` min-w-[300px] md:max-w-[300px]`}>
-                <div className="flex text-base text-slate-200   py-4">
+                <div className="flex text-base text-slate-600   py-4">
                     <i className="fa fa-calendar me-2" />
                     <small>{resultFormatDate}</small>
                 </div>
@@ -26,7 +26,7 @@ export const PortofolioItem: React.FC<PortofolioItemComponentProps> = ({
             </div>
             <div className={`md:px-4 py-4 `}>
                 <h6 className="text-lg font-medium mb-2">{porto.title}</h6>
-                <p className="text-sm text-slate-400 prose" dangerouslySetInnerHTML={{ __html: porto.details }}></p>
+                <p className="text-sm text-slate-600 prose" dangerouslySetInnerHTML={{ __html: porto.details }}></p>
                 <div>
                     <ul className="flex gap-2 unstyled">
                         {porto?.technologies?.map((tech, index) => (

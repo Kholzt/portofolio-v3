@@ -9,7 +9,7 @@ export function Achievment({ achievement }: { achievement: AchievementProps[] })
                 <h4 className="inline-block font-bold mb-0 text-lg ">
                     Sertifikat/ Penghargaan
                 </h4>
-                <p className="text-base text-slate-400">
+                <p className="text-base text-slate-600">
                     Inilah beberapa penghargaan/sertifikat yang telah saya
                     dapatkan:
                 </p>

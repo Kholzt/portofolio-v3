@@ -20,7 +20,7 @@ export const ExperienceItem: React.FC<PortofolioItemComponentProps> = ({
             </div>
             <div className="md:px-4 py-2">
                 <h6 className="text-lg font-medium mb-2">{porto.title}</h6>
-                <p className="text-sm text-slate-400 prose" dangerouslySetInnerHTML={{ __html: porto.details }}></p>
+                <p className="text-sm text-slate-600 prose" dangerouslySetInnerHTML={{ __html: porto.details }}></p>
                 <div>
                     <ul className="flex gap-2 unstyled">
                         {porto?.technologies?.map((tech, index) => (
