@@ -136,7 +136,7 @@ const Landing: React.FC<PortofolioProps> = ({ data }) => {
                             <div className="md:min-h-[70vh] min-h-[50vh] flex items-center">
                                 <div>
                                     <h1 className="text-4xl font-medium mb-2 md:text-start text-center move-circle">{user.name}</h1>
-                                    <p className="text-base text-slate-400 mb-4 md:text-start text-center md:max-w-[70%] move-circle">{user.biodata?.about_me}</p>
+                                    <p className="text-base text-slate-400 mb-4 md:text-start text-center md:max-w-[70%] move-circle" dangerouslySetInnerHTML={{ __html: user.biodata?.about_me ?? "" }}></p>
                                 </div>
                             </div>
                         </section>
