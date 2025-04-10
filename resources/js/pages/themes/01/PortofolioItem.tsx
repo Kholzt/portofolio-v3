@@ -22,7 +22,7 @@ export const PortofolioItem: React.FC<PortofolioItemComponentProps> = ({
                 </div>
                 <img
                     src={porto.thumbnail.includes("https") ? porto.thumbnail : `storage/${porto.thumbnail}`}
-                    className=" aspect-video object-cover object-top w-full rounded mx-auto"
+                    className=" aspect-video object-cover object-top w-full rounded mx-auto md:grayscale hover:grayscale-0"
                     alt={porto.title} />
             </div>
             <div className={`${layout == LayoutType.GRID ? "md:px-4 py-4" : "py-4"} `}>
