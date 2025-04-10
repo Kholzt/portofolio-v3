@@ -25,7 +25,7 @@ export function Achievment({ achievement }: { achievement: AchievementProps[] })
                             <figure className="w-full">
                                 <img
                                     src={`storage/${achi.attachment1}`}
-                                    className="aspect-video object-cover object-top w-full md:grayscale hover:grayscale-0"
+                                    className="aspect-video object-cover object-top w-full md:grayscale hover:grayscale-0 transition-all ease-in-out"
                                     alt={achi.title} />
                             </figure>
                             <div className="absolute bottom-[-100%] group-hover:bottom-0 transition-all  left-0 w-full bg-black group-hover:bg-opacity-50 bg-opacity-0 text-white p-4">
