@@ -1,22 +1,22 @@
 {
-  "_AuthenticatedLayout-BDt7Dl1b.js": {
-    "file": "assets/AuthenticatedLayout-BDt7Dl1b.js",
+  "_AuthenticatedLayout-DBiYpVz6.js": {
+    "file": "assets/AuthenticatedLayout-DBiYpVz6.js",
     "name": "AuthenticatedLayout",
     "imports": [
       "resources/js/app.tsx",
-      "_transition-BfZW28nV.js",
-      "_PrimaryButton-DPVie8ZX.js"
+      "_transition-DHKUG8vE.js",
+      "_PrimaryButton-kOB1C7DH.js"
     ]
   },
-  "_PrimaryButton-DPVie8ZX.js": {
-    "file": "assets/PrimaryButton-DPVie8ZX.js",
+  "_PrimaryButton-kOB1C7DH.js": {
+    "file": "assets/PrimaryButton-kOB1C7DH.js",
     "name": "PrimaryButton",
     "imports": [
       "resources/js/app.tsx"
     ]
   },
-  "_TextInput-BPLS1vud.js": {
-    "file": "assets/TextInput-BPLS1vud.js",
+  "_TextInput-Ciok_SA-.js": {
+    "file": "assets/TextInput-Ciok_SA-.js",
     "name": "TextInput",
     "imports": [
       "resources/js/app.tsx"
@@ -26,31 +26,32 @@
     "file": "assets/all-D3bZNxv5.js",
     "name": "all"
   },
-  "_description-CxVHrcg7.js": {
-    "file": "assets/description-CxVHrcg7.js",
+  "_description-R0YNOIld.js": {
+    "file": "assets/description-R0YNOIld.js",
     "name": "description",
     "imports": [
       "resources/js/app.tsx",
-      "_transition-BfZW28nV.js"
+      "_transition-DHKUG8vE.js"
     ]
   },
   "_helpers-C_h0qzc2.js": {
     "file": "assets/helpers-C_h0qzc2.js",
     "name": "helpers"
   },
-  "_transition-BfZW28nV.js": {
-    "file": "assets/transition-BfZW28nV.js",
+  "_transition-DHKUG8vE.js": {
+    "file": "assets/transition-DHKUG8vE.js",
     "name": "transition",
     "imports": [
       "resources/js/app.tsx"
     ]
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-uMB3Biod.js",
+    "file": "assets/app-Du94PmxZ.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
     "dynamicImports": [
+      "resources/js/pages/Article.tsx",
       "resources/js/pages/CV.tsx",
       "resources/js/pages/Dashboard.tsx",
       "resources/js/pages/Portofolio.tsx",
@@ -60,7 +61,9 @@
       "resources/js/pages/Profile/Partials/UpdateProfileInformationForm.tsx",
       "resources/js/pages/Welcome.tsx",
       "resources/js/pages/themes/01/Achievment.tsx",
+      "resources/js/pages/themes/01/Article.tsx",
       "resources/js/pages/themes/01/ExperienceItem.tsx",
+      "resources/js/pages/themes/01/Navbar.tsx",
       "resources/js/pages/themes/01/Portofolio.tsx",
       "resources/js/pages/themes/01/PortofolioItem.tsx",
       "resources/js/pages/themes/02/Achievment.tsx",
@@ -69,11 +72,23 @@
       "resources/js/pages/themes/02/PortofolioItem.tsx"
     ],
     "css": [
-      "assets/app-Dg6HvJQx.css"
+      "assets/app-BbB5t5rx.css"
+    ]
+  },
+  "resources/js/pages/Article.tsx": {
+    "file": "assets/Article-DSDBJldq.js",
+    "name": "Article",
+    "src": "resources/js/pages/Article.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "resources/js/pages/themes/01/Article.tsx",
+      "resources/js/pages/themes/01/Navbar.tsx",
+      "_helpers-C_h0qzc2.js"
     ]
   },
   "resources/js/pages/CV.tsx": {
-    "file": "assets/CV-4nz-qXKE.js",
+    "file": "assets/CV-C9Ab6_UT.js",
     "name": "CV",
     "src": "resources/js/pages/CV.tsx",
     "isDynamicEntry": true,
@@ -83,19 +98,19 @@
     ]
   },
   "resources/js/pages/Dashboard.tsx": {
-    "file": "assets/Dashboard-BacLVw2J.js",
+    "file": "assets/Dashboard-DV1u93Dx.js",
     "name": "Dashboard",
     "src": "resources/js/pages/Dashboard.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_AuthenticatedLayout-BDt7Dl1b.js",
-      "_transition-BfZW28nV.js",
-      "_PrimaryButton-DPVie8ZX.js"
+      "_AuthenticatedLayout-DBiYpVz6.js",
+      "_transition-DHKUG8vE.js",
+      "_PrimaryButton-kOB1C7DH.js"
     ]
   },
   "resources/js/pages/Portofolio.tsx": {
-    "file": "assets/Portofolio-C41d-gsZ.js",
+    "file": "assets/Portofolio-CJfxjk3y.js",
     "name": "Portofolio",
     "src": "resources/js/pages/Portofolio.tsx",
     "isDynamicEntry": true,
@@ -108,67 +123,68 @@
       "resources/js/pages/themes/01/PortofolioItem.tsx",
       "resources/js/pages/themes/01/ExperienceItem.tsx",
       "resources/js/pages/themes/01/Achievment.tsx",
+      "resources/js/pages/themes/01/Navbar.tsx",
       "resources/js/pages/themes/02/PortofolioItem.tsx",
       "resources/js/pages/themes/02/ExperienceItem.tsx",
       "resources/js/pages/themes/02/Achievment.tsx"
     ]
   },
   "resources/js/pages/Profile/Edit.tsx": {
-    "file": "assets/Edit-CCUYa24-.js",
+    "file": "assets/Edit-o36AFn5X.js",
     "name": "Edit",
     "src": "resources/js/pages/Profile/Edit.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_AuthenticatedLayout-BDt7Dl1b.js",
+      "_AuthenticatedLayout-DBiYpVz6.js",
       "resources/js/pages/Profile/Partials/DeleteUserForm.tsx",
       "resources/js/pages/Profile/Partials/UpdatePasswordForm.tsx",
       "resources/js/pages/Profile/Partials/UpdateProfileInformationForm.tsx",
-      "_transition-BfZW28nV.js",
-      "_PrimaryButton-DPVie8ZX.js",
-      "_TextInput-BPLS1vud.js",
-      "_description-CxVHrcg7.js"
+      "_transition-DHKUG8vE.js",
+      "_PrimaryButton-kOB1C7DH.js",
+      "_TextInput-Ciok_SA-.js",
+      "_description-R0YNOIld.js"
     ]
   },
   "resources/js/pages/Profile/Partials/DeleteUserForm.tsx": {
-    "file": "assets/DeleteUserForm-BpZOh9a1.js",
+    "file": "assets/DeleteUserForm-COe7ZYsw.js",
     "name": "DeleteUserForm",
     "src": "resources/js/pages/Profile/Partials/DeleteUserForm.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_TextInput-BPLS1vud.js",
-      "_transition-BfZW28nV.js",
-      "_description-CxVHrcg7.js"
+      "_TextInput-Ciok_SA-.js",
+      "_transition-DHKUG8vE.js",
+      "_description-R0YNOIld.js"
     ]
   },
   "resources/js/pages/Profile/Partials/UpdatePasswordForm.tsx": {
-    "file": "assets/UpdatePasswordForm-BX-9CEXz.js",
+    "file": "assets/UpdatePasswordForm-DlEvFMme.js",
     "name": "UpdatePasswordForm",
     "src": "resources/js/pages/Profile/Partials/UpdatePasswordForm.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_TextInput-BPLS1vud.js",
-      "_PrimaryButton-DPVie8ZX.js",
-      "_transition-BfZW28nV.js"
+      "_TextInput-Ciok_SA-.js",
+      "_PrimaryButton-kOB1C7DH.js",
+      "_transition-DHKUG8vE.js"
     ]
   },
   "resources/js/pages/Profile/Partials/UpdateProfileInformationForm.tsx": {
-    "file": "assets/UpdateProfileInformationForm-DfTyp_VF.js",
+    "file": "assets/UpdateProfileInformationForm-DuwN8n6k.js",
     "name": "UpdateProfileInformationForm",
     "src": "resources/js/pages/Profile/Partials/UpdateProfileInformationForm.tsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.tsx",
-      "_TextInput-BPLS1vud.js",
-      "_PrimaryButton-DPVie8ZX.js",
-      "_description-CxVHrcg7.js",
-      "_transition-BfZW28nV.js"
+      "_TextInput-Ciok_SA-.js",
+      "_PrimaryButton-kOB1C7DH.js",
+      "_description-R0YNOIld.js",
+      "_transition-DHKUG8vE.js"
     ]
   },
   "resources/js/pages/Welcome.tsx": {
-    "file": "assets/Welcome-DSGLw6YN.js",
+    "file": "assets/Welcome-D4bLFA-L.js",
     "name": "Welcome",
     "src": "resources/js/pages/Welcome.tsx",
     "isDynamicEntry": true,
@@ -177,7 +193,7 @@
     ]
   },
   "resources/js/pages/themes/01/Achievment.tsx": {
-    "file": "assets/Achievment-B-7pAEGm.js",
+    "file": "assets/Achievment-DhcGe0Me.js",
     "name": "Achievment",
     "src": "resources/js/pages/themes/01/Achievment.tsx",
     "isDynamicEntry": true,
@@ -185,8 +201,19 @@
       "resources/js/app.tsx"
     ]
   },
+  "resources/js/pages/themes/01/Article.tsx": {
+    "file": "assets/Article-Br6SinrM.js",
+    "name": "Article",
+    "src": "resources/js/pages/themes/01/Article.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx",
+      "resources/js/pages/themes/01/Navbar.tsx",
+      "_helpers-C_h0qzc2.js"
+    ]
+  },
   "resources/js/pages/themes/01/ExperienceItem.tsx": {
-    "file": "assets/ExperienceItem-CFddKbz_.js",
+    "file": "assets/ExperienceItem-1d8pBGiT.js",
     "name": "ExperienceItem",
     "src": "resources/js/pages/themes/01/ExperienceItem.tsx",
     "isDynamicEntry": true,
@@ -195,8 +222,17 @@
       "_all-D3bZNxv5.js"
     ]
   },
+  "resources/js/pages/themes/01/Navbar.tsx": {
+    "file": "assets/Navbar-xCIlpKwd.js",
+    "name": "Navbar",
+    "src": "resources/js/pages/themes/01/Navbar.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.tsx"
+    ]
+  },
   "resources/js/pages/themes/01/Portofolio.tsx": {
-    "file": "assets/Portofolio-Cq1ZLXig.js",
+    "file": "assets/Portofolio-DIGKuwtF.js",
     "name": "Portofolio",
     "src": "resources/js/pages/themes/01/Portofolio.tsx",
     "isDynamicEntry": true,
@@ -206,11 +242,12 @@
       "_all-D3bZNxv5.js",
       "resources/js/pages/themes/01/PortofolioItem.tsx",
       "resources/js/pages/themes/01/ExperienceItem.tsx",
-      "resources/js/pages/themes/01/Achievment.tsx"
+      "resources/js/pages/themes/01/Achievment.tsx",
+      "resources/js/pages/themes/01/Navbar.tsx"
     ]
   },
   "resources/js/pages/themes/01/PortofolioItem.tsx": {
-    "file": "assets/PortofolioItem-jHlbK0t5.js",
+    "file": "assets/PortofolioItem-C9kmbfTW.js",
     "name": "PortofolioItem",
     "src": "resources/js/pages/themes/01/PortofolioItem.tsx",
     "isDynamicEntry": true,
@@ -220,7 +257,7 @@
     ]
   },
   "resources/js/pages/themes/02/Achievment.tsx": {
-    "file": "assets/Achievment-CAi-2w-g.js",
+    "file": "assets/Achievment-9IFMWGuq.js",
     "name": "Achievment",
     "src": "resources/js/pages/themes/02/Achievment.tsx",
     "isDynamicEntry": true,
@@ -229,7 +266,7 @@
     ]
   },
   "resources/js/pages/themes/02/ExperienceItem.tsx": {
-    "file": "assets/ExperienceItem-BtaqSmnH.js",
+    "file": "assets/ExperienceItem-ClObLYS9.js",
     "name": "ExperienceItem",
     "src": "resources/js/pages/themes/02/ExperienceItem.tsx",
     "isDynamicEntry": true,
@@ -238,7 +275,7 @@
     ]
   },
   "resources/js/pages/themes/02/Portofolio.tsx": {
-    "file": "assets/Portofolio-Diq6VRR4.js",
+    "file": "assets/Portofolio-PX849GUm.js",
     "name": "Portofolio",
     "src": "resources/js/pages/themes/02/Portofolio.tsx",
     "isDynamicEntry": true,
@@ -251,7 +288,7 @@
     ]
   },
   "resources/js/pages/themes/02/PortofolioItem.tsx": {
-    "file": "assets/PortofolioItem-hJEiy--m.js",
+    "file": "assets/PortofolioItem-D0Pp3Wl1.js",
     "name": "PortofolioItem",
     "src": "resources/js/pages/themes/02/PortofolioItem.tsx",
     "isDynamicEntry": true,

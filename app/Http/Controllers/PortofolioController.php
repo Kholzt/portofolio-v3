@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Achievement;
-use App\Models\Biodata;
+use App\Models\Article;
+use App\Models\Category;
 use App\Models\Portofolio;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class PortofolioController extends Controller
 {
@@ -46,5 +46,18 @@ class PortofolioController extends Controller
             "user" => $user,
         ];
         return inertia("CV", $params);
+    }
+    public function article()
+    {
+        $articles = Article::orderBy("id", "desc")->where("status","published")->get();
+        $categories = Category::orderBy("name", "desc")->with("articles",function ($qr) {
+            $qr->where("status","published");
+        })->get();
+
+        $params["data"] = (object)[
+            "articles" => $articles,
+            "categories" => $categories,
+        ];
+        return inertia("Article", $params);
     }
 }

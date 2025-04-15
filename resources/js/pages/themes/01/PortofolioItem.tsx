@@ -13,7 +13,7 @@ export const PortofolioItem: React.FC<PortofolioItemComponentProps> = ({
     porto, resultFormatDate, layout
 }) => (
     <div>
-        <article className={`rounded-md overflow-hidden group h-full ${layout == LayoutType.GRID && "md:flex"}`}>
+        <article className={`rounded-md overflow-hidden h-full ${layout == LayoutType.GRID && "md:flex"}`}>
 
             <div className={` ${layout == LayoutType.GRID && "min-w-[300px] md:max-w-[300px]"}`}>
                 <div className="flex text-base text-slate-200   py-4">
@@ -22,7 +22,7 @@ export const PortofolioItem: React.FC<PortofolioItemComponentProps> = ({
                 </div>
                 <img
                     src={porto.thumbnail.includes("https") ? porto.thumbnail : `storage/${porto.thumbnail}`}
-                    className=" aspect-video object-cover object-top w-full rounded mx-auto md:grayscale group-hover:grayscale-0 transition-all ease-in-out"
+                    className=" aspect-video object-cover object-top w-full rounded mx-auto "
                     alt={porto.title} />
             </div>
             <div className={`${layout == LayoutType.GRID ? "md:px-4 py-4" : "py-4"} `}>

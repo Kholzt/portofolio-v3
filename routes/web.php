@@ -9,7 +9,11 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', [PortofolioController::class, "index"])->name("landing");
+Route::get("/login",function () {
+    return redirect("admin/login");
+});
 Route::get('/cv', [PortofolioController::class, "cv"])->name("cv");
+Route::get('/article', [PortofolioController::class, "article"])->name("article.list");
 
 Route::prefix("c/admin")->middleware("auth")->group(function () {
     Route::get('/dashboard', function () {

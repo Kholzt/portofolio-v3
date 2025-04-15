@@ -37,7 +37,7 @@ class AdminPanelProvider extends PanelProvider
             ->navigationGroups([
                 NavigationGroup::make()
                 ->label('My Data')
-                ->icon('heroicon-o-pencil')
+                // ->icon('heroicon-o-pencil')
                 ->collapsed(),
             NavigationGroup::make()
                 ->label('Settings')

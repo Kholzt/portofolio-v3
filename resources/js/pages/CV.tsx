@@ -30,7 +30,7 @@ const CV: React.FC<CvProps> = ({ data }) => {
                     Summary
                 </h2>
                 <hr className="border-slate-500 mb-2" />
-                <p className="text-[12px]">{data.user.biodata.about_me}</p>
+                <p className="text-[12px]" dangerouslySetInnerHTML={{ __html: data.user.biodata.about_me ?? "" }}></p>
             </section>
             <section className="p-0 mb-10">
                 <h2 className=" font-medium uppercase text-[16px]">
@@ -57,7 +57,7 @@ const CV: React.FC<CvProps> = ({ data }) => {
                                     {formatDate(end_date, false)})
                                 </span>
                                 <p
-                                    className="text-[12px]"
+                                    className={`text-[12px] ${i !== 0 && "mt-2"}`}
                                     dangerouslySetInnerHTML={{
                                         __html: details?.replace(
                                             /\n/g,

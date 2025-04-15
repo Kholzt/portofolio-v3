@@ -24,12 +24,32 @@ export interface BiodataProps {
     about_me?: string;
     photo?: string;
 }
+export interface UserProps {
+    name?: string;
+    email?: string;
+}
 export interface AchievementProps {
     id:string,
     title: string;
     description?: string;
     attachment1: string;
     attachment2?: string;
+}
+export interface CategoryProps {
+    id:string,
+    name: string;
+    slug: string;
+    articles:ArticlesProps[]
+}
+export interface ArticlesProps {
+    id:string,
+    title: string;
+    slug: string;
+    content?: string;
+    thumbnail: string;
+    published_at:Date,
+    author?: UserProps;
+    category?: CategoryProps;
 }
 
 export enum LayoutType {

@@ -8,6 +8,7 @@ import { PortofolioItem } from "./PortofolioItem";
 import { ExperienceItem } from "./ExperienceItem";
 import { Achievment } from "./Achievment";
 import PrimaryButton from "@/Components/PrimaryButton";
+import Navbar from './Navbar';
 
 interface PortofolioProps {
     data: {
@@ -94,6 +95,7 @@ const Theme1: React.FC<PortofolioProps> = ({ data }) => {
 
     return (
         <div className="bg-gray-800 text-white">
+            <Navbar />
             <div className="lines">
                 <div className="line"></div>
                 <div className="line"></div>
